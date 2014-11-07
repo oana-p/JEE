@@ -11,12 +11,15 @@ public class DatabaseManager {
 
         Connection con = null;
         try {
+            Class.forName("oracle.jdbc.driver.OracleDriver");
             con = DriverManager.getConnection(
                     "jdbc:oracle:thin:@10.6.33.102:1521:orcl",
                     username,
                     password);
 
         } catch (SQLException e) {
+            e.printStackTrace();
+        } catch (ClassNotFoundException e) {
             e.printStackTrace();
         }
 

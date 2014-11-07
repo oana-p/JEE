@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/web-container.iml" filepath="$PROJECT_DIR$/web-container.iml" />
+      <module fileurl="file://$PROJECT_DIR$/z2h-jsp.iml" filepath="$PROJECT_DIR$/z2h-jsp.iml" />
     </modules>
   </component>
 </project>

@@ -2,6 +2,8 @@
 <%@ page import="java.util.List" %>
 <%@ page import="ro.teamnet.z2h.dao.EmployeeDao" %>
 <%@ page import="java.text.SimpleDateFormat" %>
+<%@ page import="java.sql.Connection" %>
+<%@ page import="ro.teamnet.z2h.utils.DatabaseManager" %>
 <%--
   Created by IntelliJ IDEA.
   User: Viorelt
@@ -35,7 +37,39 @@
 
     %>
     <tr>
-        <!--TODO de completat cu cod pentru a afisa detaliile angajatului cu id-ul trimis din employeelist.jsp in momentul in care se acceseaza link-ul 'View'-->
+        <%
+
+           String id = request.getParameter("id");
+
+            Connection con = DatabaseManager.getConnection("zth_24","passw0rd");
+            Employee employee = (new EmployeeDao()).getEmployeeById(con, Long.parseLong(id, 10));
+            con.close();
+    %>
+
+        <td>
+            <%=employee.getId()%>
+        </td>
+        <td>
+            <%=employee.getFirstName()%>
+        </td>
+        <td>
+            <%=employee.getLastName()%>
+        </td>
+        <td>
+            <%=employee.getSalary()%>
+        </td>
+        <td>
+            <%=employee.getEmail()%>
+        </td>
+        <td>
+            <%=sdf.format(employee.getHireDate())%>
+        </td>
+        <td>
+            <%=employee.getPhoneNumber()%>
+        </td>
+        <td>
+            <%=employee.getCommissionPoints()%>
+        </td>
     </tr>
 
     </tbody>

@@ -2,6 +2,9 @@
 <%@ page import="java.util.List" %>
 <%@ page import="ro.teamnet.z2h.dao.EmployeeDao" %>
 <%@ page import="java.text.SimpleDateFormat" %>
+<%@ page import="ro.teamnet.z2h.utils.DatabaseManager" %>
+<%@ page import="java.sql.Connection" %>
+<%@ page import="ro.teamnet.z2h.App" %>
 <%--
   Created by IntelliJ IDEA.
   User: Viorelt
@@ -15,7 +18,13 @@
     <title>Employee List</title>
 </head>
 <body>
-<%List<Employee> employeeList = new EmployeeDao().getAllEmployees();%>
+<%
+
+    Connection con = DatabaseManager.getConnection("zth_24", "passw0rd");
+    List<Employee> employeeList = new EmployeeDao().getAllEmployees(con);
+    con.close();
+
+%>
 <table border="1">
     <thead>
     <tr>

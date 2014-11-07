@@ -12,6 +12,34 @@ public class Employee {
     private Double salary;
     private Double commissionPoints;
     private String phoneNumber;
+    private Job job;
+    private Employee manager;
+
+    public Job getJob() {
+        return job;
+    }
+
+    public void setJob(Job job) {
+        this.job = job;
+    }
+
+    public Employee getManager() {
+        return manager;
+    }
+
+    public void setManager(Employee manager) {
+        this.manager = manager;
+    }
+
+    public Department getDepartment() {
+        return department;
+    }
+
+    public void setDepartment(Department department) {
+        this.department = department;
+    }
+
+    private Department department;
 
     public Long getId() {
         return id;

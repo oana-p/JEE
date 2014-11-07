@@ -11,6 +11,7 @@ import ro.teamnet.z2h.domain.Department;
 import ro.teamnet.z2h.domain.Employee;
 import ro.teamnet.z2h.domain.Job;
 import ro.teamnet.z2h.utils.DatabaseManager;
+import ro.teamnet.z2h.utils.ResultSetToPojoConverter;
 import ro.teamnet.z2h.views.EmployeeView;
 
 import java.io.IOException;
@@ -29,10 +30,13 @@ public class App {
     public static void main(String[] args) {
         System.out.println("Starting ZTH JDBC Tutorial ");
 
+
         Connection con = DatabaseManager.getConnection(USERNAME, PASSWORD);
         DatabaseManager.checkConnection(con);
+/*
 
         ObjectMapper mapper = new ObjectMapper();
+
 
         HashMap<String, String> createTableJobs = new HashMap<String, String>();
 
@@ -77,17 +81,17 @@ public class App {
         }
 
         EmployeeDao employeeDao = new EmployeeDao();
-        try {
+      //  try {
             ArrayList<Employee> employees = employeeDao.getAllEmployees(con);
             System.out.println("System retrieved " + employees.size() + " employees");
             Employee employee = employeeDao.getEmployeeById(con, 101L);
             System.out.println("System retrieved Mr/Mrs " + employee.getFirstName() + " " + employee.getLastName() + " from database");
-            employeeDao.updateEmployee(employee, con);
-            employeeDao.saveEmployee(employee, con);
+           // employeeDao.updateEmployee(employee, con);
+          //  employeeDao.saveEmployee(employee, con);
 
-        } catch (SQLException e) {
-            e.printStackTrace();
-        }
+       // } catch (SQLException e) {
+      //      e.printStackTrace();
+     //   }
         EmployeeViewDao employeeViewDao = new EmployeeViewDao();
 
         EmployeeView employeeView = null;
@@ -102,6 +106,7 @@ public class App {
 
 
         try {
+
             System.out.println(mapper.writeValueAsString(employeeView));
         } catch (JsonGenerationException e) {
             e.printStackTrace();
@@ -111,6 +116,7 @@ public class App {
             e.printStackTrace();
 
         }
+*/
 
 
         DatabaseManager.closeConnection(con);
